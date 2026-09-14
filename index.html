@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- Metadata yang diminta -->
     <meta name="description" content="Halaman profil dan portfolio pembelajaran Tsulsi Khoirunisa untuk mata kuliah Pengembangan Aplikasi Web.">
     <meta property="og:title" content="PAW | Tsulsi Khoirunisa">
     <meta property="og:description" content="Halaman profil dan portfolio pembelajaran Tsulsi Khoirunisa.">
@@ -11,169 +12,296 @@
 
     <title>PAW | Tsulsi Khoirunisa</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-</head>
+    <!-- CSS Styling Layout Bersih & Profesional -->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f9;
+            color: #333;
+        }
 
+        /* Header Banner Bersih / Netral */
+        header {
+            background-color: #24292e;
+            color: white;
+            text-align: center;
+            padding: 35px 20px 20px 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+            letter-spacing: 1px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #d1d5db;
+        }
+
+        /* Navbar Horizontal di Bawah Banner */
+        nav {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            padding: 0 20px;
+            border-bottom: 1px solid #e1e4e8;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+        nav a {
+            color: #0366d6;
+            text-decoration: none;
+            padding: 14px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        nav a:hover {
+            background-color: #f1f8ff;
+        }
+
+        /* Container Utama 2 Kolom */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        /* Kolom Kiri (Konten & Tabel) */
+        .main-content {
+            flex: 1;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #e1e4e8;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        /* Kolom Kanan (Profil/Biodata Card) */
+        .sidebar-profile {
+            width: 300px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e1e4e8;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+            text-align: center;
+        }
+        .sidebar-profile img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #e1e4e8;
+        }
+        .sidebar-profile h3 {
+            margin: 15px 0 5px 0;
+            color: #24292e;
+        }
+
+        /* Judul dan Teks */
+        h2, h3, h4 {
+            color: #24292e;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        h2 {
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        /* Tabel Akademik */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            margin-bottom: 25px;
+        }
+        th, td {
+            border: 1px solid #e1e4e8;
+            padding: 10px 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+        th {
+            background-color: #f6f8fa;
+            color: #24292e;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #fafbfc;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #586069;
+            font-size: 13px;
+            background-color: #fff;
+            border-top: 1px solid #e1e4e8;
+            margin-top: 40px;
+        }
+    </style>
+</head>
 <body>
 
-    <!-- ================= NAVBAR ================= -->
-    <header class="navbar">
-        <div class="container nav-container">
-            <a href="#home" class="logo">
-                <span>PAW</span>
-                <small>Portfolio</small>
-            </a>
-            
-            <nav class="nav-menu">
-                <a href="#home">Home</a>
-                <a href="#tentang">Tentang</a>
-            </nav>
-        </div>
+    <!-- ================= HEADER BANNER ================= -->
+    <header>
+        <h1>Tsulsi Khoirunisa</h1>
+        <p>Portofolio & Kumpulan Tugas Pengembangan Aplikasi Web</p>
     </header>
 
-    <!-- ================= HERO & PROFIL ================= -->
-    <main>
-        <section id="home" class="hero">
-            <div class="container hero-container">
+    <!-- ================= NAVBAR HORIZONTAL ================= -->
+    <nav>
+        <a href="#profil">Profil Diri</a>
+        <a href="#matakuliah">Mata Kuliah</a>
+        <a href="https://github.com/tsulsinisa14-maker/" target="_blank">GitHub</a>
+    </nav>
+
+    <!-- ================= KONTEN UTAMA (2 KOLOM) ================= -->
+    <div class="container">
+        
+        <!-- KOLOM KIRI: Deskripsi & Tabel Kuliah -->
+        <div class="main-content">
+            <section id="profil">
+                <h2>About Me</h2>
+                <p>Halo! Saya <strong>Tsulsi Khoirunisa</strong>, mahasiswa Program Studi Teknik Informatika, fakultas Sains dan Teknologi di UIN Sunan Gunung Djati Bandung.</p>
+                <p>Website ini dibuat sebagai dokumentasi perjalanan belajar dan tempat pengumpulan tugas selama mengikuti mata kuliah <strong>Pengembangan Aplikasi Web</strong>.</p>
+                <p>Kunjungi <a href="https://uinsgd.ac.id" target="_blank" style="color: #0366d6; text-decoration: underline;">Website Universitas</a> untuk informasi resmi mengenai kampus kami.</p>
+            </section>
+
+            <div style="margin: 30px 0;"></div>
+
+            <section id="matakuliah">
+                <h3>Data Akademik</h3>
+                <h4 style="margin-bottom: 5px; font-weight: normal; color: #555;">Jadwal Mata Kuliah (Semester 5 Kelas D)</h4>
                 
-                <div class="hero-text">
-                    <p class="eyebrow">PORTFOLIO PEMBELAJARAN</p>
-                    <h1>Pengembangan <span>Aplikasi Web</span></h1>
-                    <p class="hero-description">
-                        Kumpulan tugas, dokumentasi, dan proses pembelajaran selama mengikuti mata kuliah Pengembangan Aplikasi Web.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="#tentang" class="button primary">Lihat Profil & Mata Kuliah</a>
-                    </div>
-                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Mata Kuliah</th>
+                            <th>SKS</th>
+                            <th>Hari & Waktu</th>
+                            <th>Ruangan</th>
+                            <th>Dosen Pengampu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Manajemen Basis Data</td>
+                            <td>3</td>
+                            <td>Senin, 12:40 - 15:10</td>
+                            <td>R.4.12</td>
+                            <td>Wildan Budiawan Zulfikar S.T., M.Kom.</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Manajemen Proyek Perangkat Lunak</td>
+                            <td>3</td>
+                            <td>Senin, 15:30 - 18:00</td>
+                            <td>R.4.01</td>
+                            <td>Agung Wahana S.E., M.T.</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>ICT dan Islam</td>
+                            <td>2</td>
+                            <td>Selasa, 10:20 - 12:00</td>
+                            <td>R.4.12</td>
+                            <td>Maulana Hasan M., M.Kom.</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Pengembangan Aplikasi Mobile</td>
+                            <td>3</td>
+                            <td>Selasa, 15:30 - 18:00</td>
+                            <td>R.4.01</td>
+                            <td>H. Aldy Rialdy Atmadja M.T.</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Jaringan Komputer</td>
+                            <td>3</td>
+                            <td>Rabu, 07:00 - 09:30</td>
+                            <td>R.4.11</td>
+                            <td>Cecep Nurul Alam M.T.</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Interaksi Manusia dan Komputer</td>
+                            <td>3</td>
+                            <td>Kamis, 07:00 - 09:30</td>
+                            <td>R.4.01</td>
+                            <td>Dr. Cepy Slamet S.T., M.Kom.</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Pengembangan Aplikasi Web</td>
+                            <td>3</td>
+                            <td>Jumat, 07:00 - 09:30</td>
+                            <td>Gedung R.3.9</td>
+                            <td>Muhammad Deden Firdaus ST, M.Kom.</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Intelegensia Buatan</td>
+                            <td>3</td>
+                            <td>Jumat, 12:40 - 15:10</td>
+                            <td>R.4.09</td>
+                            <td>Jumadi ST., M.Cs.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
 
-                <div class="hero-card">
-                    <div class="profile-box" style="margin-bottom: 20px;">
-                        <img src="image/foto_Tsulsi_khoirunisa.jpg" alt="Foto profil Tsulsi Khoirunisa" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px;">
-                    </div>
-                    
-                    <h2>Tsulsi Khoirunisa</h2>
-                    <p>Teknik Informatika (D)</p>
-                    
-                    <div class="mini-info">
-                        <div>
-                            <strong>1247050119</strong>
-                            <span>NIM</span>
-                        </div>
-                        <div>
-                            <strong>PAW</strong>
-                            <span>Mata Kuliah</span>
-                        </div>
-                    </div>
-                </div>
+        <!-- KOLOM KANAN: Kartu Profil & Foto Diri -->
+        <div class="sidebar-profile">
+            <h3 style="font-size: 15px; color: #586069; margin-top: 0; border-bottom: 1px solid #eaecef; padding-bottom: 8px;">Biodata Akademik</h3>
+            
+            <!-- Foto Diri dengan Atribut Alt -->
+            <img src="image/foto_Tsulsi_khoirunisa.jpg" alt="Foto Profil Tsulsi Khoirunisa">
+            
+            <h3 style="margin-bottom: 2px; font-size: 16px;">Tsulsi Khoirunisa</h3>
+            <p style="color: #586069; font-size: 13px; margin-top: 0; margin-bottom: 15px;">Teknik Informatika (Kelas D)</p>
+            
+            <table style="margin-top: 10px; border: none; width: 100%;">
+                <tr>
+                    <td style="border: none; padding: 4px; color: #586069; font-size: 13px;">NIM</td>
+                    <td style="border: none; padding: 4px; font-size: 13px;"><strong>1247050119</strong></td>
+                </tr>
+                <tr>
+                    <td style="border: none; padding: 4px; color: #586069; font-size: 13px;">Jurusan</td>
+                    <td style="border: none; padding: 4px; font-size: 13px;">Teknik Informatika</td>
+                </tr>
+                <tr>
+                    <td style="border: none; padding: 4px; color: #586069; font-size: 13px;">Fakultas</td>
+                    <td style="border: none; padding: 4px; font-size: 13px;">Sains dan Teknologi</td>
+                </tr>
+                <tr>
+                    <td style="border: none; padding: 4px; color: #586069; font-size: 13px;">Institusi</td>
+                    <td style="border: none; padding: 4px; font-size: 13px;">UIN SGD Bandung</td>
+                </tr>
+            </table>
+        </div>
 
-            </div>
-        </section>
-
-        <!-- ================= TENTANG & TABEL ================= -->
-        <section id="tentang" class="about-section">
-            <div class="container about-container">
-                
-                <div class="about-box">
-                    <p class="section-label">ABOUT ME</p>
-                    <h2>Tentang Saya</h2>
-                    <p>Halo! Saya <strong>Tsulsi Khoirunisa</strong>, mahasiswa Program Studi Teknik Informatika.</p>
-                    <p>Website ini dibuat sebagai dokumentasi perjalanan belajar dan tempat pengumpulan tugas selama mengikuti mata kuliah Pengembangan Aplikasi Web.</p>
-                    
-                    <!-- Syarat: Minimal 1 link -->
-                    <p>Kunjungi <a href="https://uinsgd.ac.id" target="_blank" style="color: blue; text-decoration: underline;">Website Universitas</a> untuk informasi lebih lanjut mengenai kampus.</p>
-                </div>
-
-                <div class="about-info">
-                    <div class="info-item">
-                        <span>Nama</span>
-                        <strong>Tsulsi Khoirunisa</strong>
-                    </div>
-                    <div class="info-item">
-                        <span>NIM</span>
-                        <strong>1247050119</strong>
-                    </div>
-                    <div class="info-item">
-                        <span>Program Studi</span>
-                        <strong>Teknik Informatika</strong>
-                    </div>
-                    <div class="info-item">
-                        <span>Kelas</span>
-                        <strong>D</strong>
-                    </div>
-                    
-                    <!-- Syarat: Tabel Mata Kuliah -->
-                    <div class="courses-table" style="margin-top: 40px;">
-                        <h3 style="margin-bottom: 15px;">Daftar Mata Kuliah Semester 5</h3>
-                        <table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">
-                            <thead>
-                                <tr style="background-color: #f8f9fa;">
-                                    <th style="padding: 12px; border: 1px solid #ddd;">No</th>
-                                    <th style="padding: 12px; border: 1px solid #ddd;">Mata Kuliah</th>
-                                    <th style="padding: 12px; border: 1px solid #ddd;">SKS</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">1</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">Manajemen Basis Data</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">3</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">2</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">Jaringan Komputer</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">3</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">3</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">Pengembangan Aplikasi Mobile</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">3</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">4</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">Pengembangan Aplikasi Web</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">3</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">5</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">Interaksi Manusia dan Komputer</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">3</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">6</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">Intelegensia Buatan</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">3</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">7</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">Manajemen Proyek Perangkat Lunak</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">3</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">8</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">ICT dan Islam</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">2</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-    </main>
+    </div>
 
     <!-- ================= FOOTER ================= -->
     <footer>
-        <div class="container footer-container" style="padding: 20px 0; text-align: center; border-top: 1px solid #ddd; margin-top: 40px;">
-            <div>
-                <strong>PAW Portofolio</strong>
-                <p>Dokumentasi pembelajaran Pengembangan Aplikasi Web.</p>
-            </div>
-            <p> &copy; 2026 Tsulsi Khoirunisa</p>
-        </div>
+        <p>&copy; 2026 Tsulsi Khoirunisa | Portofolio & Tugas-tugas Pengembangan Aplikasi Web</p>
     </footer>
 
 </body>
