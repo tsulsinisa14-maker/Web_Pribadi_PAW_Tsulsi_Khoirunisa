@@ -253,6 +253,7 @@
 
     <nav aria-label="Navigasi utama">
         <a href="#profil">Profil Diri</a>
+        <a href="#tugas">Tugas</a>
         <a href="#matakuliah">Jadwal Kuliah</a>
         <a href="https://github.com/tsulsinisa14-maker/" target="_blank" rel="noopener noreferrer">GitHub</a>
     </nav>
@@ -265,6 +266,61 @@
                 <p>Halo! Saya <strong>Tsulsi Khoirunisa</strong>, mahasiswa Program Studi Teknik Informatika di UIN Sunan Gunung Djati Bandung.</p>
                 <p>Website ini dibuat sebagai dokumentasi perjalanan belajar dan tempat pengumpulan tugas selama mengikuti mata kuliah <strong>Pengembangan Aplikasi Web</strong>.</p>
                 <p>Kunjungi <a href="https://uinsgd.ac.id" target="_blank" rel="noopener noreferrer">Website Universitas</a> untuk informasi resmi mengenai kampus kami.</p>
+            </section>
+
+            <section id="tugas" aria-labelledby="tugas-heading">
+                <h2 id="tugas-heading">Daftar Tugas Kuliah</h2>
+                <p>Kelola tugas kuliahmu: tambah, edit, hapus, dan tandai status <strong>Belum Selesai</strong> / <strong>Selesai</strong>. Data tersimpan di browser (localStorage).</p>
+
+                <form id="task-form" class="task-form" novalidate>
+                    <div class="field full">
+                        <label for="task-title">Nama tugas</label>
+                        <input type="text" id="task-title" maxlength="100" placeholder="Contoh: Tugas Pertemuan 6" required>
+                    </div>
+                    <div class="field">
+                        <label for="task-course">Mata kuliah</label>
+                        <input type="text" id="task-course" list="course-list" maxlength="80" placeholder="Pilih / ketik mata kuliah" required>
+                        <datalist id="course-list">
+                            <option value="Manajemen Basis Data"></option>
+                            <option value="Manajemen Proyek Perangkat Lunak"></option>
+                            <option value="ICT dan Islam"></option>
+                            <option value="Pengembangan Aplikasi Mobile"></option>
+                            <option value="Jaringan Komputer"></option>
+                            <option value="Interaksi Manusia dan Komputer"></option>
+                            <option value="Pengembangan Aplikasi Web"></option>
+                            <option value="Intelegensia Buatan"></option>
+                        </datalist>
+                    </div>
+                    <div class="field">
+                        <label for="task-deadline">Tenggat</label>
+                        <input type="date" id="task-deadline" required>
+                    </div>
+                    <div class="field">
+                        <label for="task-priority">Prioritas</label>
+                        <select id="task-priority">
+                            <option value="rendah">Rendah</option>
+                            <option value="sedang" selected>Sedang</option>
+                            <option value="tinggi">Tinggi</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" id="task-submit" class="btn btn-primary">Tambah Tugas</button>
+                        <button type="button" id="task-cancel" class="btn" hidden>Batal</button>
+                    </div>
+                    <p id="form-error" class="form-error" role="alert"></p>
+                </form>
+
+                <div class="toolbar">
+                    <div class="filters" role="group" aria-label="Filter status tugas">
+                        <button type="button" class="btn btn-sm is-active" data-filter="semua" aria-pressed="true">Semua</button>
+                        <button type="button" class="btn btn-sm" data-filter="belum" aria-pressed="false">Belum Selesai</button>
+                        <button type="button" class="btn btn-sm" data-filter="selesai" aria-pressed="false">Selesai</button>
+                    </div>
+                    <p id="task-summary" aria-live="polite"></p>
+                </div>
+
+                <ul id="task-list" class="task-list"></ul>
+                <p id="task-empty" class="task-empty" hidden>Belum ada tugas. Tambahkan tugas pertamamu di atas.</p>
             </section>
 
             <section id="matakuliah" aria-labelledby="matakuliah-heading">
@@ -396,5 +452,6 @@
         <p>&copy; 2026 Tsulsi Khoirunisa | Portofolio &amp; Tugas-tugas Pengembangan Aplikasi Web</p>
     </footer>
 
+    <script type="module" src="/src/main.ts"></script>
 </body>
 </html>
