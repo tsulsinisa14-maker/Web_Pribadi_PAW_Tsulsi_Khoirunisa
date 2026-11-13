@@ -102,3 +102,18 @@
   .task-item { flex-direction: column; }
   .task-actions { justify-content: flex-start; }
 }
+
+/* ===== Navigasi antar halaman ===== */
+nav a.is-active {
+  color: #24292e;
+  background-color: #f1f8ff;
+  box-shadow: inset 0 -3px 0 #0366d6;
+}
+
+.main-content > section {
+  animation: halaman-masuk 0.25s ease;
+}
+@keyframes halaman-masuk {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
