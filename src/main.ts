@@ -1,6 +1,7 @@
 import './style.css';
 import type { Task, TaskInput, TaskStatus, Priority, Filter } from './types';
 import { loadFromStorage, saveToStorage, findById } from './storage';
+import { showAppInfo } from './config';
 
 const STORAGE_KEY: string = 'tugas-kuliah-v1';
 let editingId: string | null = null;
@@ -253,4 +254,5 @@ listEl.addEventListener('click', (event: MouseEvent) => {
   render();
 });
 
+showAppInfo();
 render();
