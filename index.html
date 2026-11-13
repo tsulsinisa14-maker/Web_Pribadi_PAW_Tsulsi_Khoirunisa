@@ -243,6 +243,7 @@
     </style>
 </head>
 <body>
+    <!-- Catatan versi: ditulis di branch feature/env-docs -->
 
     <a class="skip-link" href="#konten-utama">Langsung ke konten utama</a>
 
@@ -255,6 +256,7 @@
         <a href="#profil">Profil Diri</a>
         <a href="#tugas">Tugas</a>
         <a href="#matakuliah">Jadwal Kuliah</a>
+        <a href="#dokumentasi">Dokumentasi</a>
         <a href="https://github.com/tsulsinisa14-maker/" target="_blank" rel="noopener noreferrer">GitHub</a>
     </nav>
 
@@ -404,6 +406,63 @@
                                 <td>Jumat, 12:40 - 15:10</td>
                                 <td>R.4.09</td>
                                 <td>Jumadi ST., M.Cs.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="dokumentasi" aria-labelledby="dokumentasi-heading">
+                <h2 id="dokumentasi-heading">Dokumentasi Teknologi yang Digunakan</h2>
+                <p>Ringkasan penggunaan Git, npm, TypeScript, Vite, dan environment variables pada aplikasi daftar tugas di atas.</p>
+
+                <h3>1. Git dan GitHub</h3>
+                <p>Git adalah <em>version control system</em> untuk mencatat riwayat perubahan kode. Pada proyek ini saya memakai <code>git commit</code>, <code>git branch</code> / <code>git switch</code>, <code>git merge</code>, <code>git push</code>, dan <code>git pull</code>. GitHub dipakai sebagai tempat penyimpanan repository online, tempat membuat <em>Pull Request</em>, dan sumber deploy otomatis ke Vercel. File <code>.gitignore</code> memastikan <code>node_modules</code>, <code>dist</code>, dan <code>.env</code> tidak ikut terunggah.</p>
+
+                <h3>2. npm</h3>
+                <p>npm adalah <em>package manager</em> untuk Node.js. Konfigurasi proyek ada di <code>package.json</code>.</p>
+                <ul>
+                    <li><strong>dependencies</strong>: paket yang dibutuhkan aplikasi saat berjalan.</li>
+                    <li><strong>devDependencies</strong>: paket yang hanya dibutuhkan saat pengembangan/build (di sini <code>vite</code> dan <code>typescript</code>).</li>
+                    <li><strong>Semantic versioning</strong> berformat <code>MAJOR.MINOR.PATCH</code>. Tanda <code>^</code> (contoh <code>^8.3.8</code>) mengizinkan update MINOR dan PATCH, sedangkan <code>~</code> hanya mengizinkan update PATCH.</li>
+                    <li><strong>npm scripts</strong>: <code>npm run dev</code> (server pengembangan), <code>npm run build</code> (build produksi), <code>npm run preview</code> (mencoba hasil build).</li>
+                </ul>
+
+                <h3>3. TypeScript</h3>
+                <p>TypeScript adalah JavaScript yang ditambah sistem tipe statis sehingga kesalahan tipe ketahuan sebelum aplikasi dijalankan. Di <code>src/types.ts</code>, <code>src/storage.ts</code>, dan <code>src/main.ts</code> digunakan: tipe primitif (<code>string</code>, <code>number</code>, <code>boolean</code>), array (<code>Task[]</code>), <code>interface Task</code>, <em>type alias</em> dan <em>union type</em> (<code>TaskStatus = 'belum' | 'selesai'</code>), serta <em>generics</em> (<code>loadFromStorage&lt;T&gt;</code>).</p>
+
+                <h3>4. Vite</h3>
+                <p>Vite adalah <em>build tool</em> modern. Saat pengembangan, Vite menyediakan dev server cepat dengan <em>hot module replacement</em>. Saat <code>npm run build</code>, Vite menggabungkan dan meminimalkan kode menjadi folder <code>dist</code> yang siap di-deploy ke Vercel.</p>
+
+                <h3>5. Environment Variables</h3>
+                <p>Konfigurasi disimpan di file <code>.env</code> dan dibaca lewat <code>import.meta.env</code>. Hanya variabel berawalan <code>VITE_</code> yang dikirim ke browser, jadi variabel itu <strong>bersifat publik</strong> dan hanya boleh berisi data non-rahasia seperti nama dan versi aplikasi. File <code>.env</code> masuk <code>.gitignore</code>, sedangkan <code>.env.example</code> (tanpa nilai rahasia) diunggah sebagai contoh. Password dan API key tidak pernah ditulis di kode, di <code>.env.example</code>, maupun di website.</p>
+
+                <h3>6. Peran Compiler, Transpiler, dan Bundler</h3>
+                <div class="table-responsive">
+                    <table>
+                        <caption>Perbandingan compiler, transpiler, dan bundler</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Istilah</th>
+                                <th scope="col">Fungsi</th>
+                                <th scope="col">Pada proyek ini</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Compiler</th>
+                                <td>Menerjemahkan kode sumber ke bentuk lain sambil memeriksa kesalahan (misalnya pemeriksaan tipe).</td>
+                                <td><code>tsc</code> memeriksa tipe TypeScript lewat <code>npm run build</code>.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Transpiler</th>
+                                <td>Mengubah kode dari satu bahasa/versi ke bahasa lain yang levelnya setara.</td>
+                                <td>TypeScript (<code>.ts</code>) diubah menjadi JavaScript yang dipahami browser.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Bundler</th>
+                                <td>Menggabungkan banyak file dan dependency menjadi sedikit file yang dioptimalkan (minify, tree-shaking).</td>
+                                <td><code>vite build</code> menghasilkan folder <code>dist</code>.</td>
                             </tr>
                         </tbody>
                     </table>
