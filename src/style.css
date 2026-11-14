@@ -117,3 +117,24 @@ nav a.is-active {
   from { opacity: 0; transform: translateY(6px); }
   to   { opacity: 1; transform: none; }
 }
+
+/* ===== Header dan menu menempel di atas ===== */
+.site-top {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+/* Biar judul section tidak tertutup header saat berpindah */
+.main-content > section {
+  scroll-margin-top: 140px;
+}
+
+/* Di HP header dibuat lebih ramping supaya tidak makan layar */
+@media screen and (max-width: 800px) {
+  .site-top header { padding: 12px 15px 8px; }
+  .site-top header h1 { font-size: 20px; }
+  .site-top header p { display: none; }
+  .site-top nav a { padding: 8px 12px; }
+}
